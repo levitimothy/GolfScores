@@ -2,16 +2,17 @@
 //  GolfScoresApp.swift
 //  GolfScores
 //
-//  Created by Joanne Timothy on 7/23/24.
 //
 
 import SwiftUI
 
 @main
 struct GolfScoresApp: App {
+    @StateObject private var arr = MyStuff()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(arr)
         }
     }
 }

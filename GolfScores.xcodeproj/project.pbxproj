@@ -14,6 +14,7 @@
 		915F22B32C50482900840AB9 /* GolfScoresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22B22C50482900840AB9 /* GolfScoresTests.swift */; };
 		915F22BD2C50482900840AB9 /* GolfScoresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22BC2C50482900840AB9 /* GolfScoresUITests.swift */; };
 		915F22BF2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22BE2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift */; };
+		915F22CE2C5559AE00840AB9 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22CD2C5559AE00840AB9 /* Items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		915F22B82C50482900840AB9 /* GolfScoresUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GolfScoresUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		915F22BC2C50482900840AB9 /* GolfScoresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfScoresUITests.swift; sourceTree = "<group>"; };
 		915F22BE2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfScoresUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		915F22CD2C5559AE00840AB9 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				915F22A32C50482700840AB9 /* ContentView.swift */,
 				915F22A52C50482800840AB9 /* Assets.xcassets */,
 				915F22A72C50482800840AB9 /* Preview Content */,
+				915F22CD2C5559AE00840AB9 /* Items.swift */,
 			);
 			path = GolfScores;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				915F22A42C50482700840AB9 /* ContentView.swift in Sources */,
+				915F22CE2C5559AE00840AB9 /* Items.swift in Sources */,
 				915F22A22C50482700840AB9 /* GolfScoresApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
