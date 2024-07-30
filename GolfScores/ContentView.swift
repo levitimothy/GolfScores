@@ -2,10 +2,35 @@
 //  ContentView.swift
 //  GolfScores
 //
+//  All calculations for handicap and score differential are taken from the USGA regulations
 //
 
 import SwiftUI
 import SQLite3
+import AVKit
+
+class SoundManager {
+    
+    static let instance = SoundManager()
+    
+    var player: AVAudioPlayer?
+    enum SoundOption: String{
+        case tada
+        case edit
+    }
+    
+    func playSound(sound: SoundOption){
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else {return}
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch let error {
+            print("Error playing sound. \(error.localizedDescription)")
+        }
+        
+    }
+    
+}
 
 struct ContentView: View {
     @EnvironmentObject var arr: MyStuff
@@ -88,8 +113,8 @@ struct ScoresView: View{
                             ForEach(arr.items) {
                                 item in
                                     VStack{
-                                        let index = arr.items.firstIndex(of: Item(score: item.score, numHoles: item.numHoles, courseRating: item.courseRating, slopeRating: item.slopeRating, scoreDiff: item.scoreDiff))
-                                        NavigationLink(destination: EditScore(arr: self.$arr.items, index: index ?? 0, tempScore: String(item.score), tempNumHoles: item.numHoles, tempCourseRating: String(item.courseRating), tempSlopeRating: String(item.slopeRating), tempScoreDiff: String(item.scoreDiff), previousNumHoles: item.numHoles ).navigationBarBackButtonHidden(true)){
+                                        let index = arr.items.firstIndex(of: Item(id: item.id, score: item.score, numHoles: item.numHoles, courseRating: item.courseRating, slopeRating: item.slopeRating, scoreDiff: item.scoreDiff))
+                                        NavigationLink(destination: EditScore(arr: self.$arr.items, index: index!, tempScore: String(item.score), tempNumHoles: item.numHoles, tempCourseRating: String(item.courseRating), tempSlopeRating: String(item.slopeRating), tempScoreDiff: String(item.scoreDiff), previousNumHoles: item.numHoles ).navigationBarBackButtonHidden(true)){
                                             
                                             Text("Score: " + String(item.score)).font(.title3)
                                             Text(" Holes: " + item.numHoles).font(.subheadline)
@@ -175,6 +200,7 @@ struct EditScore: View{
             }
             ToolbarItem(placement: .navigationBarTrailing){
                 Button("Save"){
+                    SoundManager.instance.playSound(sound: .edit)
                     // verify how many holes played
                     if Int(tempNumHoles)! == 18 {
                         // if the score was previously 9 holes subtract from total
@@ -201,7 +227,7 @@ struct EditScore: View{
                     }
                     //recalculate differential. Also removes the ability for users to change this
                     let diff = ((Double(tempScore)! - Double(tempCourseRating)!) * 113 / Double(tempSlopeRating)!)
-                    arr[index + 1] = (Item(score: Int(tempScore)!, numHoles: tempNumHoles, courseRating: Double(tempCourseRating)!, slopeRating: Int(tempSlopeRating)!, scoreDiff: diff))
+                    arr[index] = (Item(score: Int(tempScore)!, numHoles: tempNumHoles, courseRating: Double(tempCourseRating)!, slopeRating: Int(tempSlopeRating)!, scoreDiff: diff))
                     dismiss()
                 }
             }
@@ -246,6 +272,7 @@ struct NewScore: View{
             }
             ToolbarItem(placement: .navigationBarTrailing){
                 Button("Save"){
+                    SoundManager.instance.playSound(sound: .tada)
                     if Int(tempNumHoles)! == 18 {
                         temp.num18 = temp.num18 + 1
                         if temp.lowScore18 > Int(tempScore)! || temp.lowScore9 == 0 {
@@ -358,7 +385,9 @@ func readDatabase(items: inout [Item], lowScore18: inout Int, lowScore9: inout I
         arrDiff.append(scoreDiff)
         i = i + 1
     }
-    if i <= 3 {
+    if i == 0 {
+        handicap = 0
+    } else if i <= 3 {
         //if have less then 3 scores take the smallest score differential and subtact 2
         handicap = arrDiff[0] - 2
     } else if i == 4 {
@@ -521,7 +550,9 @@ func writeDatabase(items: inout [Item], lowScore18: inout Int, lowScore9: inout 
         arrDiff.append(scoreDiff)
         i = i + 1
     }
-    if i <= 3 {
+    if i == 0 {
+        handicap = 0
+    } else if i <= 3 {
         //if have less then 3 scores take the smallest score differential and subtact 2
         handicap = arrDiff[0] - 2
     } else if i == 4 {

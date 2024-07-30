@@ -15,6 +15,12 @@
 		915F22BD2C50482900840AB9 /* GolfScoresUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22BC2C50482900840AB9 /* GolfScoresUITests.swift */; };
 		915F22BF2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22BE2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift */; };
 		915F22CC2C5049D700840AB9 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F22CB2C5049D700840AB9 /* Items.swift */; };
+		915F22DD2C58367B00840AB9 /* tada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 915F22DC2C58367B00840AB9 /* tada.mp3 */; };
+		915F22DE2C58367B00840AB9 /* tada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 915F22DC2C58367B00840AB9 /* tada.mp3 */; };
+		915F22DF2C58367B00840AB9 /* tada.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 915F22DC2C58367B00840AB9 /* tada.mp3 */; };
+		915F22E12C58371B00840AB9 /* edit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 915F22E02C58371B00840AB9 /* edit.mp3 */; };
+		915F22E22C58371B00840AB9 /* edit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 915F22E02C58371B00840AB9 /* edit.mp3 */; };
+		915F22E32C58371B00840AB9 /* edit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 915F22E02C58371B00840AB9 /* edit.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +52,8 @@
 		915F22BC2C50482900840AB9 /* GolfScoresUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfScoresUITests.swift; sourceTree = "<group>"; };
 		915F22BE2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfScoresUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		915F22CB2C5049D700840AB9 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		915F22DC2C58367B00840AB9 /* tada.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tada.mp3; sourceTree = "<group>"; };
+		915F22E02C58371B00840AB9 /* edit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = edit.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +106,7 @@
 			children = (
 				915F22A12C50482700840AB9 /* GolfScoresApp.swift */,
 				915F22A32C50482700840AB9 /* ContentView.swift */,
+				915F22CF2C5831A800840AB9 /* Sounds */,
 				915F22A52C50482800840AB9 /* Assets.xcassets */,
 				915F22A72C50482800840AB9 /* Preview Content */,
 				915F22CB2C5049D700840AB9 /* Items.swift */,
@@ -128,6 +137,15 @@
 				915F22BE2C50482900840AB9 /* GolfScoresUITestsLaunchTests.swift */,
 			);
 			path = GolfScoresUITests;
+			sourceTree = "<group>";
+		};
+		915F22CF2C5831A800840AB9 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				915F22DC2C58367B00840AB9 /* tada.mp3 */,
+				915F22E02C58371B00840AB9 /* edit.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +252,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915F22E12C58371B00840AB9 /* edit.mp3 in Resources */,
+				915F22DD2C58367B00840AB9 /* tada.mp3 in Resources */,
 				915F22A92C50482800840AB9 /* Preview Assets.xcassets in Resources */,
 				915F22A62C50482800840AB9 /* Assets.xcassets in Resources */,
 			);
@@ -243,6 +263,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915F22E22C58371B00840AB9 /* edit.mp3 in Resources */,
+				915F22DE2C58367B00840AB9 /* tada.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +272,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915F22E32C58371B00840AB9 /* edit.mp3 in Resources */,
+				915F22DF2C58367B00840AB9 /* tada.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
